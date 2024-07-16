@@ -1,0 +1,9 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: Kafka-Subscriber
+
+kafka:
+  bootstrap-server: localhost:29092
