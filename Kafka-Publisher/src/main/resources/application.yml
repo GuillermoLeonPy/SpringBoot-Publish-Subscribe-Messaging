@@ -5,7 +5,14 @@ spring:
   application:
     name: Kafka-Publisher
 
+#use localhost:29092 to reach the kafka cluster dockerized container from outside the docker network
+#look at the docker-compose.yml file, kafka service definition, kafka listeners properties
+#kafka:
+#  bootstrap-server: localhost:29092
+
+#use kafka:9092 to reach the kafka cluster dockerized container from inside the docker network
+#look at the docker-compose.yml file, kafka service definition, kafka listeners properties
 kafka:
-  bootstrap-server: localhost:29092
+  bootstrap-server: kafka:9092
 
 

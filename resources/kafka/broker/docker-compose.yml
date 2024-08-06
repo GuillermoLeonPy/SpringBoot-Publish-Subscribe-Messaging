@@ -35,3 +35,19 @@ services:
       KAFKA_CLUSTERS_0_NAME: local
       KAFKA_CLUSTERS_0_BOOTSTRAP_SERVERS: kafka:9092
       KAFKA_CLUSTERS_0_ZOOKEEPER: zookeeper:2181
+
+  subscriber:
+    image: kafka-subscriber:1.0-SNAPSHOT
+    container_name: kafka-subscriber_1.0-SNAPSHOT
+    ports:
+      - 8081:8081
+    depends_on:
+      - kafka-ui
+
+  publisher:
+    image: kafka-publisher:1.0-SNAPSHOT
+    container_name: kafka-publisher_1.0-SNAPSHOT
+    ports:
+      - 8080:8080
+    depends_on:
+      - subscriber

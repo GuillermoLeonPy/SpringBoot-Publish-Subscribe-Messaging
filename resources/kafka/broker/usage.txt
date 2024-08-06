@@ -76,3 +76,24 @@ create a producer terminal
 Web GUI for Kafka Admin through provectuslabs/kafka-ui
 ======================================================
 http://localhost:8090/
+
+
+Compile the subscriber and publisher springboot jar files
+=========================================================
+
+Update the application.yaml to specify the kafka cluster ip and port used from inside the docker network
+
+kafka:9092 instead of localhost:29092
+
+Use localhost:29092 for testing the springboot applications by running them outside the docker network
+
+
+Build subscriber and publisher docker images
+============================================
+
+/SpringBoot-Publish-Subscribe-Messaging/SpringBoot-Publish-Subscribe-Messaging/Kafka-Subscriber$ docker build --file Dockerfile --tag kafka-subscriber:1.0-SNAPSHOT .
+
+/SpringBoot-Publish-Subscribe-Messaging/SpringBoot-Publish-Subscribe-Messaging/Kafka-Publisher$ docker build --file Dockerfile --tag kafka-publisher:1.0-SNAPSHOT .
+
+Update the docker-compose.yml to declare the created images
+
